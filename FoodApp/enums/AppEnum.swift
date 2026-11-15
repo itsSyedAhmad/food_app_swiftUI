@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Tab: CaseIterable {
+enum MainTab: CaseIterable {
     case home
     case menu
     case favorites
@@ -35,7 +35,7 @@ enum Tab: CaseIterable {
     }
 }
 
-enum Category: CaseIterable, Hashable {
+enum FoodCategory: CaseIterable, Hashable {
     case snacks
     case meal
     case vegan
@@ -59,8 +59,24 @@ enum Category: CaseIterable, Hashable {
             return "none"
         }
     }
+    var icon: String {
+        switch self {
+        case .snacks:
+            return "snacks"
+        case .meal:
+            return "meals"
+        case .vegan:
+            return "vegan"
+        case .dessert:
+            return "dessert"
+        case .drinks:
+            return "drinks"
+        case .none:
+            return "none"
+        }
+    }
 
-    static var displayCases: [Category] {
+    static var displayCases: [FoodCategory] {
         allCases.filter { $0 != .none }
     }
 }

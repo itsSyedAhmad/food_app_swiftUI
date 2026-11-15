@@ -9,7 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     
-    let onTapCategory : (Category) ->Void
+
+
+
+    let onTapCategory : (FoodCategory) ->Void
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Rise and shine! It's breakfast time")
@@ -21,18 +25,18 @@ struct HomeView: View {
                 .frame(height: 48)
                
             HStack {
-                ForEach(Array(Category.displayCases.enumerated()), id: \.element) { item in
+                ForEach(Array(FoodCategory.displayCases.enumerated()), id: \.element) { item in
 
                     let index = item.offset
                     let category = item.element
 
-                    CategoryItemCard(label: category.title, onTap: {
+                    CategoryItemCard(foodCategory: category, onTap: {
                         
                             onTapCategory(category)
                         
                     })
 
-                    if index < Category.displayCases.count - 1 {
+                    if index < FoodCategory.displayCases.count - 1 {
                         Spacer()
                     }
                 }

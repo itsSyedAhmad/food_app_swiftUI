@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct MenuView: View {
-    @Binding var selectedCategory: Category
+    @Binding var selectedCategory: FoodCategory
     var body: some View {
         VStack(spacing: 0) {
             GeometryReader { p in
                 HStack(spacing: 0) {
-                    ForEach(Array(Category.displayCases.enumerated()), id: \.element) { item in
+                    ForEach(Array(FoodCategory.displayCases.enumerated()), id: \.element) { item in
                         let index = item.offset
                         let category = item.element
                         
                         HStack {
-                            CategoryItemCard(label: category.title, onTap: {
+                            CategoryItemCard(foodCategory: category, onTap: {
                                 selectedCategory = category
                             })
                         }
@@ -94,7 +94,7 @@ struct CurvedTabShape: Shape {
 }
 
 #Preview {
-    @Previewable @State var selectedCategory: Category = .none
+    @Previewable @State var selectedCategory: FoodCategory = .none
 
     MenuView(selectedCategory: $selectedCategory)
 }

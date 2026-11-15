@@ -20,8 +20,8 @@ struct MainScreenHeader: View {
 }
 
 struct MainScreenContent: View {
-    @State var selectedTab: Tab = .home
-    @State var selectedCategory: Category = .none
+    @State var selectedTab: MainTab = .home
+    @State var selectedCategory: FoodCategory = .none
 
     @ViewBuilder
     var currentView: some View {
@@ -55,11 +55,11 @@ struct MainScreenContent: View {
     }
 
     struct BottomNavigationBarView: View {
-        @Binding var selectedTab: Tab
-        @Binding var selectedCategory: Category
+        @Binding var selectedTab: MainTab
+        @Binding var selectedCategory: FoodCategory
         var body: some View {
             HStack(alignment: .firstTextBaseline, spacing: 0) {
-                ForEach(Tab.allCases, id: \.self) { tab in
+                ForEach(MainTab.allCases, id: \.self) { tab in
                     HStack {
                         VStack(spacing: 0) {
                             Image(systemName: tab.icon)
