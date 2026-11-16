@@ -30,7 +30,7 @@ struct HomeView: View {
                     let index = item.offset
                     let category = item.element
 
-                    CategoryItemCard(foodCategory: category, onTap: {
+                    CategoryItemCard(category: category, onTap: {
                         
                             onTapCategory(category)
                         

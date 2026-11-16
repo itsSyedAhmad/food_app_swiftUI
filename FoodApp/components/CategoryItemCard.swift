@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct CategoryItemCard: View {
-    let label : String
+    let category : FoodCategory
     let onTap : () -> Void
     var body: some View {
         VStack{
-            Color(.categoryItemBackground)
+            Image(category.icon)
                 .frame(width: 49 ,height: 62)
+                .background(.categoryItemBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
             
             Spacer()
                 .frame(height: 4)
             
-            Text(label)
+            Text(category.title)
                 .font(.system(size: 12 , weight: .medium ))
                 .foregroundStyle(.font)
             
@@ -31,5 +32,5 @@ struct CategoryItemCard: View {
 }
 
 #Preview {
-    CategoryItemCard(label: "String", onTap: {})
+    CategoryItemCard(category: FoodCategory.dessert, onTap: {})
 }

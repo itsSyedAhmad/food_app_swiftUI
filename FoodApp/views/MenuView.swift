@@ -18,7 +18,7 @@ struct MenuView: View {
                         let category = item.element
                         
                         HStack {
-                            CategoryItemCard(foodCategory: category, onTap: {
+                            CategoryItemCard(category: category, onTap: {
                                 selectedCategory = category
                             })
                         }
